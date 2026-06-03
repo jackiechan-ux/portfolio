@@ -135,8 +135,20 @@
   }
   :root:not([data-theme="light"]):not([data-theme]) .ticket-row.hot,
   :root[data-theme="dark"] .ticket-row.hot {
-    border-color: rgba(255,85,51,0.4);
-    background: linear-gradient(90deg, rgba(255,85,51,0.07), var(--bg3));
+    border-color: var(--accent);
+    background: #1e1008;
+  }
+  :root:not([data-theme="light"]):not([data-theme]) .ticket-row.hot .ticket-section,
+  :root[data-theme="dark"] .ticket-row.hot .ticket-section {
+    color: var(--text);
+  }
+  :root:not([data-theme="light"]):not([data-theme]) .ticket-row.hot .ticket-detail,
+  :root[data-theme="dark"] .ticket-row.hot .ticket-detail {
+    color: var(--text2);
+  }
+  :root:not([data-theme="light"]):not([data-theme]) .ticket-row.hot .ticket-price,
+  :root[data-theme="dark"] .ticket-row.hot .ticket-price {
+    color: var(--text);
   }
   :root:not([data-theme="light"]):not([data-theme]) .ticket-section,
   :root[data-theme="dark"] .ticket-section {
@@ -178,9 +190,12 @@
       box-shadow: none;
     }
     :root:not([data-theme="light"]) .ticket-row.hot {
-      border-color: rgba(255,85,51,0.4);
-      background: linear-gradient(90deg, rgba(255,85,51,0.07), var(--bg3));
+      border-color: var(--accent);
+      background: #1e1008;
     }
+    :root:not([data-theme="light"]) .ticket-row.hot .ticket-section { color: var(--text); }
+    :root:not([data-theme="light"]) .ticket-row.hot .ticket-detail { color: var(--text2); }
+    :root:not([data-theme="light"]) .ticket-row.hot .ticket-price { color: var(--text); }
     :root:not([data-theme="light"]) .ticket-section { color: #000000; }
     :root:not([data-theme="light"]) .ticket-detail { color: #555555; }
     :root:not([data-theme="light"]) .ticket-price { color: #000000; }
