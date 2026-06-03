@@ -109,9 +109,13 @@
   /* ── DARK MODE OVERRIDES — restore original dark styling ── */
   :root:not([data-theme="light"]):not([data-theme]) .filter-chip,
   :root[data-theme="dark"] .filter-chip {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    color: var(--text2);
+    background: #ffffff;
+    border: 1.5px solid rgba(0,0,0,0.25);
+    color: #000000;
+  }
+  :root:not([data-theme="light"]):not([data-theme]) .filter-chip:hover,
+  :root[data-theme="dark"] .filter-chip:hover {
+    border-color: #000000;
   }
   :root:not([data-theme="light"]):not([data-theme]) .filter-chip.active,
   :root[data-theme="dark"] .filter-chip.active {
@@ -121,13 +125,13 @@
   }
   :root:not([data-theme="light"]):not([data-theme]) .ticket-row,
   :root[data-theme="dark"] .ticket-row {
-    background: var(--bg3);
-    border: 1px solid var(--border);
+    background: #ffffff;
+    border: 1.5px solid rgba(0,0,0,0.25);
   }
   :root:not([data-theme="light"]):not([data-theme]) .ticket-row:hover,
   :root[data-theme="dark"] .ticket-row:hover {
-    border-color: var(--border2);
-    box-shadow: none;
+    border-color: #000000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   }
   :root:not([data-theme="light"]):not([data-theme]) .ticket-row.hot,
   :root[data-theme="dark"] .ticket-row.hot {
@@ -136,15 +140,15 @@
   }
   :root:not([data-theme="light"]):not([data-theme]) .ticket-section,
   :root[data-theme="dark"] .ticket-section {
-    color: var(--text);
+    color: #000000;
   }
   :root:not([data-theme="light"]):not([data-theme]) .ticket-detail,
   :root[data-theme="dark"] .ticket-detail {
-    color: var(--text3);
+    color: #555555;
   }
   :root:not([data-theme="light"]):not([data-theme]) .ticket-price,
   :root[data-theme="dark"] .ticket-price {
-    color: var(--text);
+    color: #000000;
   }
   :root:not([data-theme="light"]):not([data-theme]) .ba-ticket,
   :root[data-theme="dark"] .ba-ticket {
@@ -155,18 +159,19 @@
 
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) .filter-chip {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      color: var(--text2);
+      background: #ffffff;
+      border: 1.5px solid rgba(0,0,0,0.25);
+      color: #000000;
     }
+    :root:not([data-theme="light"]) .filter-chip:hover { border-color: #000000; }
     :root:not([data-theme="light"]) .filter-chip.active {
       border-color: rgba(255,85,51,0.5);
       color: var(--accent2);
       background: rgba(255,85,51,0.08);
     }
     :root:not([data-theme="light"]) .ticket-row {
-      background: var(--bg3);
-      border: 1px solid var(--border);
+      background: #ffffff;
+      border: 1.5px solid rgba(0,0,0,0.25);
     }
     :root:not([data-theme="light"]) .ticket-row:hover {
       border-color: var(--border2);
@@ -176,9 +181,9 @@
       border-color: rgba(255,85,51,0.4);
       background: linear-gradient(90deg, rgba(255,85,51,0.07), var(--bg3));
     }
-    :root:not([data-theme="light"]) .ticket-section { color: var(--text); }
-    :root:not([data-theme="light"]) .ticket-detail { color: var(--text3); }
-    :root:not([data-theme="light"]) .ticket-price { color: var(--text); }
+    :root:not([data-theme="light"]) .ticket-section { color: #000000; }
+    :root:not([data-theme="light"]) .ticket-detail { color: #555555; }
+    :root:not([data-theme="light"]) .ticket-price { color: #000000; }
     :root:not([data-theme="light"]) .ba-ticket {
       background: var(--bg3);
       border: 1px solid var(--border);
@@ -539,14 +544,14 @@
     align-items: center;
     justify-content: space-between;
     background: #ffffff;
-    border: 1.5px solid #000000;
+    border: 1.5px solid rgba(0,0,0,0.25);
     border-radius: 10px;
     padding: 14px 18px;
     font-size: 14px;
     transition: all 0.2s;
     position: relative;
   }
-  .ticket-row:hover { border-color: #000000; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+  .ticket-row:hover { border-color: #000000; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
   .ticket-row.hot {
     border-color: var(--accent);
     background: linear-gradient(90deg, rgba(255,85,51,0.05), #ffffff);
@@ -575,7 +580,7 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    border: 1.5px solid #000000;
+    border: 1.5px solid rgba(0,0,0,0.25);
     border-radius: 100px;
     padding: 6px 14px;
     font-size: 13px;
@@ -584,6 +589,7 @@
     transition: all 0.2s;
     background: #ffffff;
   }
+  .filter-chip:hover { border-color: #000000; }
   .filter-chip.active {
     border-color: var(--accent);
     color: #ffffff;
@@ -599,7 +605,7 @@
   .ba-tag { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
   .ba-card.before .ba-tag { color: var(--text3); }
   .ba-card.after .ba-tag { color: var(--green); }
-  .ba-ticket { background: #ffffff; border: 1.5px solid #000000; border-radius: 8px; padding: 12px 16px; margin-bottom: 8px; font-size: 13px; display: flex; justify-content: space-between; align-items: center; color: #000000; }
+  .ba-ticket { background: #ffffff; border: 1.5px solid rgba(0,0,0,0.25); border-radius: 8px; padding: 12px 16px; margin-bottom: 8px; font-size: 13px; display: flex; justify-content: space-between; align-items: center; color: #000000; }
   .ba-badge-old { background: rgba(59,130,246,0.12); color: #60a5fa; font-size: 11px; padding: 2px 8px; border-radius: 4px; }
   .ba-badge-new { background: rgba(255,85,51,0.12); color: var(--accent2); font-size: 11px; padding: 2px 8px; border-radius: 4px; animation: glow 2s ease-in-out infinite alternate; }
   .ba-issue { font-size: 12px; color: var(--text3); margin-top: 12px; padding: 10px; background: rgba(245,158,11,0.06); border: 1px solid rgba(245,158,11,0.15); border-radius: 8px; }
