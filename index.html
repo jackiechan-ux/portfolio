@@ -12,9 +12,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MegaSeats: Driving Conversion with "Hot Deals"</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&amp;family=DM+Sans:wght@300;400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -39,16 +37,115 @@
     --amber-dim: rgba(245,158,11,0.12);
     --blue: #3b82f6;
     --blue-dim: rgba(59,130,246,0.12);
+
+    /* ── Framer typography tokens ── */
+    --framer-font-family: "Inter Tight", "Inter Tight Placeholder", sans-serif;
+    --framer-font-family-bold: "Inter Tight", "Inter Tight Placeholder", sans-serif;
+    --framer-font-family-bold-italic: "Inter Tight", "Inter Tight Placeholder", sans-serif;
+    --framer-font-family-italic: "Inter Tight", "Inter Tight Placeholder", sans-serif;
+    --framer-font-size: 20px;
+    --framer-font-size-scale: 1;
+    --framer-font-style: normal;
+    --framer-font-style-bold: normal;
+    --framer-font-style-bold-italic: italic;
+    --framer-font-style-italic: italic;
+    --framer-font-weight: 400;
+    --framer-font-weight-bold: 700;
+    --framer-font-weight-bold-italic: 700;
+    --framer-font-weight-italic: 400;
+    --framer-font-variation-axes: normal;
+    --framer-font-open-type-features: normal;
+    --framer-letter-spacing: 0em;
+    --framer-line-height: 1.2em;
+    --framer-paragraph-spacing: 20px;
+    --framer-text-alignment: start;
+    --framer-text-color: var(--token-8ed0f524-5690-4ee5-ae11-cc9b60d389b9, #000000);
+    --framer-text-decoration: none;
+    --framer-text-decoration-style: initial;
+    --framer-text-decoration-color: initial;
+    --framer-text-decoration-thickness: initial;
+    --framer-text-decoration-skip-ink: initial;
+    --framer-text-decoration-offset: initial;
+    --framer-text-transform: none;
+    --framer-text-stroke-color: initial;
+    --framer-text-stroke-width: initial;
   }
 
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: var(--framer-font-family);
     background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    font-size: 16px;
+    color: var(--framer-text-color);
+    font-size: calc(var(--framer-font-size, 16px) * var(--framer-font-size-scale, 1));
+    font-style: var(--framer-font-style, normal);
+    font-weight: var(--framer-font-weight, 400);
+    line-height: var(--framer-line-height, 1.2em);
+    letter-spacing: var(--framer-letter-spacing, 0);
+    text-align: var(--framer-text-alignment, start);
+    text-decoration-line: var(--framer-text-decoration, initial);
+    text-decoration-style: var(--framer-text-decoration-style, initial);
+    text-decoration-color: var(--framer-text-decoration-color, initial);
+    text-decoration-thickness: var(--framer-text-decoration-thickness, initial);
+    text-decoration-skip-ink: var(--framer-text-decoration-skip-ink, initial);
+    text-underline-offset: var(--framer-text-decoration-offset, initial);
+    text-transform: var(--framer-text-transform, none);
+    -webkit-text-stroke-width: var(--framer-text-stroke-width, initial);
+    -webkit-text-stroke-color: var(--framer-text-stroke-color, initial);
+    -moz-font-feature-settings: var(--framer-font-open-type-features, initial);
+    -webkit-font-feature-settings: var(--framer-font-open-type-features, initial);
+    font-feature-settings: var(--framer-font-open-type-features, initial);
+    font-variation-settings: var(--framer-font-variation-axes-preview, var(--framer-font-variation-axes, normal));
+    text-wrap: var(--framer-text-wrap-override, var(--framer-text-wrap));
+  }
+
+  /* ── Framer bold / italic / bold-italic variants ── */
+  b, strong {
+    font-family: var(--framer-font-family-bold, var(--framer-font-family));
+    font-style: var(--framer-font-style-bold, normal);
+    font-weight: var(--framer-font-weight-bold, 700);
+  }
+
+  em, i {
+    font-family: var(--framer-font-family-italic, var(--framer-font-family));
+    font-style: var(--framer-font-style-italic, italic);
+    font-weight: var(--framer-font-weight-italic, 400);
+  }
+
+  b em, strong em, em b, em strong,
+  b i,  strong i,  i b,  i strong {
+    font-family: var(--framer-font-family-bold-italic, var(--framer-font-family));
+    font-style: var(--framer-font-style-bold-italic, italic);
+    font-weight: var(--framer-font-weight-bold-italic, 700);
+  }
+
+  /* ── Framer blockquote / paragraph text style ── */
+  p, blockquote, li, td, th, figcaption, .tl-body, .insight-text, .hero-overview {
+    font-family: var(--framer-font-family-preview, var(--framer-blockquote-font-family, var(--framer-font-family)));
+    font-style: var(--framer-font-style-preview, var(--framer-blockquote-font-style, var(--framer-font-style, normal)));
+    font-weight: var(--framer-font-weight-preview, var(--framer-blockquote-font-weight, var(--framer-font-weight, 400)));
+    color: var(--framer-blockquote-text-color, var(--framer-text-color, #000));
+    font-size: calc(var(--framer-blockquote-font-size, var(--framer-font-size, 16px)) * var(--framer-font-size-scale, 1));
+    letter-spacing: var(--framer-blockquote-letter-spacing, var(--framer-letter-spacing, 0));
+    text-transform: var(--framer-blockquote-text-transform, var(--framer-text-transform, none));
+    -webkit-text-decoration-line: var(--framer-blockquote-text-decoration, var(--framer-text-decoration, initial));
+    text-decoration-line: var(--framer-blockquote-text-decoration, var(--framer-text-decoration, initial));
+    -webkit-text-decoration-style: var(--framer-blockquote-text-decoration-style, var(--framer-text-decoration-style, initial));
+    text-decoration-style: var(--framer-blockquote-text-decoration-style, var(--framer-text-decoration-style, initial));
+    -webkit-text-decoration-color: var(--framer-blockquote-text-decoration-color, var(--framer-text-decoration-color, initial));
+    text-decoration-color: var(--framer-blockquote-text-decoration-color, var(--framer-text-decoration-color, initial));
+    text-decoration-thickness: var(--framer-blockquote-text-decoration-thickness, var(--framer-text-decoration-thickness, initial));
+    text-decoration-skip-ink: var(--framer-blockquote-text-decoration-skip-ink, var(--framer-text-decoration-skip-ink, initial));
+    text-underline-offset: var(--framer-blockquote-text-decoration-offset, var(--framer-text-decoration-offset, initial));
+    line-height: var(--framer-blockquote-line-height, var(--framer-line-height, 1.2em));
+    text-align: var(--framer-blockquote-text-alignment, var(--framer-text-alignment, start));
+    -webkit-text-stroke-width: var(--framer-text-stroke-width, initial);
+    -webkit-text-stroke-color: var(--framer-text-stroke-color, initial);
+    -moz-font-feature-settings: var(--framer-font-open-type-features, initial);
+    -webkit-font-feature-settings: var(--framer-font-open-type-features, initial);
+    font-feature-settings: var(--framer-font-open-type-features, initial);
+    font-variation-settings: var(--framer-font-variation-axes-preview, var(--framer-font-variation-axes, normal));
+    text-wrap: var(--framer-text-wrap-override, var(--framer-text-wrap));
   }
 
   /* ── NAV ── */
@@ -64,7 +161,7 @@
     align-items: center;
     justify-content: space-between;
   }
-  .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 15px; color: var(--text); letter-spacing: -0.02em; }
+  .nav-logo { font-family: 'Inter Tight', 'Inter Tight Placeholder', sans-serif; font-weight: 800; font-size: 15px; color: var(--text); letter-spacing: -0.02em; }
   .nav-links { display: flex; gap: 32px; }
   .nav-links a { font-size: 13px; color: var(--text3); text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
   .nav-links a:hover { color: var(--text); }
@@ -94,7 +191,7 @@
   @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
 
   .hero-title {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Inter Tight', 'Inter Tight Placeholder', sans-serif;
     font-size: clamp(40px, 6vw, 72px);
     font-weight: 800;
     line-height: 1.05;
@@ -136,7 +233,7 @@
   }
   .stat-item { text-align: center; }
   .stat-num {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Inter Tight', 'Inter Tight Placeholder', sans-serif;
     font-size: 42px;
     font-weight: 800;
     color: var(--text);
@@ -159,21 +256,25 @@
     gap: 12px;
   }
   .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); max-width: 60px; }
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--text);
+    line-height: 1.15em;
+  }
   h2 {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Inter Tight', 'Inter Tight Placeholder', sans-serif;
     font-size: clamp(28px, 3.5vw, 44px);
     font-weight: 700;
     letter-spacing: -0.03em;
     margin-bottom: 32px;
   }
   h3 {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Inter Tight', 'Inter Tight Placeholder', sans-serif;
     font-size: 20px;
     font-weight: 600;
     letter-spacing: -0.02em;
     margin-bottom: 16px;
   }
-  p { color: var(--text2); line-height: 1.75; margin-bottom: 20px; }
+  p { color: var(--text2); line-height: 1.2em; margin-bottom: 20px; }
 
   /* ── DIVIDER ── */
   .divider { height: 1px; background: var(--border); margin: 0 40px; }
@@ -197,7 +298,7 @@
   .problem-card:hover { border-color: var(--border2); }
   .problem-card.accent { border-color: rgba(255,85,51,0.3); background: linear-gradient(135deg, rgba(255,85,51,0.06), var(--surface)); }
   .problem-icon { font-size: 28px; margin-bottom: 16px; }
-  .problem-card h4 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 17px; margin-bottom: 10px; color: var(--text); letter-spacing: -0.02em; }
+  .problem-card h4 { font-family: 'Inter Tight', 'Inter Tight Placeholder', sans-serif; font-weight: 700; font-size: 17px; margin-bottom: 10px; color: var(--text); letter-spacing: -0.02em; }
   .problem-card p { font-size: 14px; margin-bottom: 0; color: var(--text3); }
 
   /* ── TICKET MOCKUP ── */
@@ -232,7 +333,7 @@
   .ticket-section { font-weight: 500; color: var(--text); }
   .ticket-detail { font-size: 12px; color: var(--text3); }
   .ticket-right { display: flex; align-items: center; gap: 16px; }
-  .ticket-price { font-family: 'Syne', sans-serif; font-weight: 700; color: var(--text); }
+  .ticket-price { font-family: 'Inter Tight', 'Inter Tight Placeholder', sans-serif; font-weight: 700; color: var(--text); }
   .hot-badge {
     display: flex;
     align-items: center;
@@ -294,11 +395,11 @@
   }
   .timeline-item.visible { opacity: 1; transform: translateX(0); }
   .timeline-left { display: flex; flex-direction: column; align-items: center; }
-  .tl-dot { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+  .tl-dot { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Inter Tight', 'Inter Tight Placeholder', sans-serif; font-weight: 700; font-size: 14px; flex-shrink: 0; }
   .tl-line { width: 1px; flex: 1; background: var(--border); margin: 6px 0; min-height: 20px; }
   .tl-content { padding-bottom: 8px; flex: 1; }
   .tl-step { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text3); margin-bottom: 6px; }
-  .tl-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 20px; letter-spacing: -0.02em; margin-bottom: 12px; color: var(--text); }
+  .tl-title { font-family: 'Inter Tight', 'Inter Tight Placeholder', sans-serif; font-weight: 700; font-size: 20px; letter-spacing: -0.02em; margin-bottom: 12px; color: var(--text); }
   .tl-body { font-size: 14px; color: var(--text2); line-height: 1.7; }
   .tl-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
   .tl-chip { font-size: 12px; border: 1px solid var(--border); border-radius: 6px; padding: 4px 10px; color: var(--text3); background: var(--surface2); }
@@ -334,7 +435,7 @@
   }
   .result-card:hover { transform: translateY(-4px); }
   .result-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--accent); opacity: 0.6; }
-  .result-num { font-family: 'Syne', sans-serif; font-size: 48px; font-weight: 800; letter-spacing: -0.04em; color: var(--text); line-height: 1; margin-bottom: 8px; }
+  .result-num { font-family: 'Inter Tight', 'Inter Tight Placeholder', sans-serif; font-size: 48px; font-weight: 800; letter-spacing: -0.04em; color: var(--text); line-height: 1; margin-bottom: 8px; }
   .result-num .accent { color: var(--accent); }
   .result-desc { font-size: 13px; color: var(--text3); line-height: 1.5; }
   .result-secondary { font-size: 12px; color: var(--text3); margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); }
@@ -349,8 +450,8 @@
     transition: border-color 0.2s, transform 0.2s;
   }
   .learning-card:hover { border-color: var(--border2); transform: translateY(-2px); }
-  .learning-num { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 10px; letter-spacing: 0.05em; }
-  .learning-card h4 { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 10px; letter-spacing: -0.01em; }
+  .learning-num { font-family: 'Inter Tight', 'Inter Tight Placeholder', sans-serif; font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 10px; letter-spacing: 0.05em; }
+  .learning-card h4 { font-family: 'Inter Tight', 'Inter Tight Placeholder', sans-serif; font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 10px; letter-spacing: -0.01em; }
   .learning-card p { font-size: 13px; color: var(--text3); margin-bottom: 0; line-height: 1.6; }
 
   /* ── FOOTER ── */
@@ -363,7 +464,7 @@
     max-width: 1100px;
     margin: 0 auto;
   }
-  .footer-cta h3 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 32px; letter-spacing: -0.03em; margin-bottom: 8px; }
+  .footer-cta h3 { font-family: 'Inter Tight', 'Inter Tight Placeholder', sans-serif; font-weight: 800; font-size: 32px; letter-spacing: -0.03em; margin-bottom: 8px; }
   .footer-cta p { font-size: 14px; color: var(--text3); margin: 0; }
   .footer-links { display: flex; gap: 16px; }
   .cta-btn {
@@ -418,44 +519,6 @@
 </style>
 </head>
 <body>
-
-<nav>
-  <span class="nav-logo">Jackie Chan</span>
-  <div class="nav-links">
-    <a href="#overview">Overview</a>
-    <a href="#problem">Problem</a>
-    <a href="#process">Process</a>
-    <a href="#solution">Solution</a>
-    <a href="#results">Results</a>
-  </div>
-</nav>
-
-<!-- HERO -->
-<div class="hero" id="overview">
-  <div class="hero-tag">Case Study · 2025</div>
-  <h1 class="hero-title">MegaSeats:<br><em>"Hot Deals"</em><br>Conversion System</h1>
-  <div class="hero-meta">
-    <div class="hero-meta-item">
-      <div class="hero-meta-label">Role</div>
-      <div class="hero-meta-value">Senior Product Designer</div>
-    </div>
-    <div class="hero-meta-item">
-      <div class="hero-meta-label">Type</div>
-      <div class="hero-meta-value">A/B Testing · UI Design · UX Optimization</div>
-    </div>
-    <div class="hero-meta-item">
-      <div class="hero-meta-label">Company</div>
-      <div class="hero-meta-value">MegaSeats / TicketNetwork</div>
-    </div>
-    <div class="hero-meta-item">
-      <div class="hero-meta-label">Scope</div>
-      <div class="hero-meta-value">End-to-End, Solo Designer</div>
-    </div>
-  </div>
-  <p class="hero-overview">
-    Led an end-to-end A/B testing initiative redesigning deal labeling and merchandising strategy for a high-volume ticket marketplace — tackling cognitive overload, decision paralysis, and lost conversions through smarter visual signaling.
-  </p>
-</div>
 
 <!-- STAT BAR -->
 <div class="stat-bar">
@@ -872,18 +935,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
-<div class="divider"></div>
-<div class="case-footer">
-  <div class="footer-cta">
-    <h3>Let's work together.</h3>
-    <p>Senior Product Designer · UX Engineer · Available 2025</p>
-  </div>
-  <div class="footer-links">
-    <a href="mailto:jackie.chan.ux@gmail.com" class="cta-btn primary">Get in touch</a>
-    <a href="https://www.jackiechan.co" class="cta-btn">View portfolio</a>
-  </div>
-</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
