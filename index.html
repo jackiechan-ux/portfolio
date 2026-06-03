@@ -105,6 +105,87 @@
     }
   }
 
+
+  /* ── DARK MODE OVERRIDES — restore original dark styling ── */
+  :root:not([data-theme="light"]):not([data-theme]) .filter-chip,
+  :root[data-theme="dark"] .filter-chip {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    color: var(--text2);
+  }
+  :root:not([data-theme="light"]):not([data-theme]) .filter-chip.active,
+  :root[data-theme="dark"] .filter-chip.active {
+    border-color: rgba(255,85,51,0.5);
+    color: var(--accent2);
+    background: rgba(255,85,51,0.08);
+  }
+  :root:not([data-theme="light"]):not([data-theme]) .ticket-row,
+  :root[data-theme="dark"] .ticket-row {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+  }
+  :root:not([data-theme="light"]):not([data-theme]) .ticket-row:hover,
+  :root[data-theme="dark"] .ticket-row:hover {
+    border-color: var(--border2);
+    box-shadow: none;
+  }
+  :root:not([data-theme="light"]):not([data-theme]) .ticket-row.hot,
+  :root[data-theme="dark"] .ticket-row.hot {
+    border-color: rgba(255,85,51,0.4);
+    background: linear-gradient(90deg, rgba(255,85,51,0.07), var(--bg3));
+  }
+  :root:not([data-theme="light"]):not([data-theme]) .ticket-section,
+  :root[data-theme="dark"] .ticket-section {
+    color: var(--text);
+  }
+  :root:not([data-theme="light"]):not([data-theme]) .ticket-detail,
+  :root[data-theme="dark"] .ticket-detail {
+    color: var(--text3);
+  }
+  :root:not([data-theme="light"]):not([data-theme]) .ticket-price,
+  :root[data-theme="dark"] .ticket-price {
+    color: var(--text);
+  }
+  :root:not([data-theme="light"]):not([data-theme]) .ba-ticket,
+  :root[data-theme="dark"] .ba-ticket {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .filter-chip {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      color: var(--text2);
+    }
+    :root:not([data-theme="light"]) .filter-chip.active {
+      border-color: rgba(255,85,51,0.5);
+      color: var(--accent2);
+      background: rgba(255,85,51,0.08);
+    }
+    :root:not([data-theme="light"]) .ticket-row {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+    }
+    :root:not([data-theme="light"]) .ticket-row:hover {
+      border-color: var(--border2);
+      box-shadow: none;
+    }
+    :root:not([data-theme="light"]) .ticket-row.hot {
+      border-color: rgba(255,85,51,0.4);
+      background: linear-gradient(90deg, rgba(255,85,51,0.07), var(--bg3));
+    }
+    :root:not([data-theme="light"]) .ticket-section { color: var(--text); }
+    :root:not([data-theme="light"]) .ticket-detail { color: var(--text3); }
+    :root:not([data-theme="light"]) .ticket-price { color: var(--text); }
+    :root:not([data-theme="light"]) .ba-ticket {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+  }
+
   /* ── THEME TOGGLE BUTTON ── */
   #theme-toggle {
     position: fixed;
@@ -300,7 +381,6 @@
   .stat-label { font-size: 13px; color: var(--text3); margin-top: 6px; }
 
   /* ── SECTION ── */
-  section { padding: 80px 40px; max-width: 1100px; margin: 0 auto; }
   .section-label {
     font-size: 11px;
     text-transform: uppercase;
@@ -396,6 +476,26 @@
     line-height: 1.6;
     margin: 0;
     text-align: center;
+  }
+
+  section { padding: 80px 40px; max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text3);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); max-width: 60px; }
+  h2 {
+    font-family: 'Inter Tight', 'Inter Tight Placeholder', sans-serif;
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 32px;
   }
 
   /* ── DIVIDER ── */
@@ -866,7 +966,6 @@
         </div>
       </div>
     </div>
-  </div>
 </section>
 
 <div class="divider"></div>
@@ -987,7 +1086,6 @@
         </div>
       </div>
     </div>
-  </div>
 </section>
 
 <div class="divider"></div>
@@ -1049,7 +1147,6 @@
       <h4>XFN trust</h4>
       <p>Led end-to-end with full ownership. Built credibility with product and engineering as a design partner who thinks in systems and ships results.</p>
     </div>
-  </div>
 </section>
 
 <div class="divider"></div>
