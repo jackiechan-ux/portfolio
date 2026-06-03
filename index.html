@@ -126,29 +126,30 @@
   :root:not([data-theme="light"]):not([data-theme]) .ticket-row,
   :root[data-theme="dark"] .ticket-row {
     background: #ffffff;
-    border: 1.5px solid rgba(0,0,0,0.25);
+    border: 1.5px solid rgba(0,0,0,0.12);
+    border-left: none;
   }
   :root:not([data-theme="light"]):not([data-theme]) .ticket-row:hover,
   :root[data-theme="dark"] .ticket-row:hover {
-    border-color: #000000;
+    border-color: rgba(0,0,0,0.35);
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   }
   :root:not([data-theme="light"]):not([data-theme]) .ticket-row.hot,
   :root[data-theme="dark"] .ticket-row.hot {
-    border-color: var(--accent);
-    background: #1e1008;
+    border-color: rgba(255,85,51,0.25);
+    background: #ffffff;
   }
   :root:not([data-theme="light"]):not([data-theme]) .ticket-row.hot .ticket-section,
   :root[data-theme="dark"] .ticket-row.hot .ticket-section {
-    color: var(--text);
+    color: #000000;
   }
   :root:not([data-theme="light"]):not([data-theme]) .ticket-row.hot .ticket-detail,
   :root[data-theme="dark"] .ticket-row.hot .ticket-detail {
-    color: var(--text2);
+    color: #555555;
   }
   :root:not([data-theme="light"]):not([data-theme]) .ticket-row.hot .ticket-price,
   :root[data-theme="dark"] .ticket-row.hot .ticket-price {
-    color: var(--text);
+    color: #000000;
   }
   :root:not([data-theme="light"]):not([data-theme]) .ticket-section,
   :root[data-theme="dark"] .ticket-section {
@@ -183,19 +184,20 @@
     }
     :root:not([data-theme="light"]) .ticket-row {
       background: #ffffff;
-      border: 1.5px solid rgba(0,0,0,0.25);
+      border: 1.5px solid rgba(0,0,0,0.12);
+      border-left: none;
     }
     :root:not([data-theme="light"]) .ticket-row:hover {
       border-color: var(--border2);
       box-shadow: none;
     }
     :root:not([data-theme="light"]) .ticket-row.hot {
-      border-color: var(--accent);
-      background: #1e1008;
+      border-color: rgba(255,85,51,0.25);
+      background: #ffffff;
     }
-    :root:not([data-theme="light"]) .ticket-row.hot .ticket-section { color: var(--text); }
-    :root:not([data-theme="light"]) .ticket-row.hot .ticket-detail { color: var(--text2); }
-    :root:not([data-theme="light"]) .ticket-row.hot .ticket-price { color: var(--text); }
+    :root:not([data-theme="light"]) .ticket-row.hot .ticket-section { color: #000000; }
+    :root:not([data-theme="light"]) .ticket-row.hot .ticket-detail { color: #555555; }
+    :root:not([data-theme="light"]) .ticket-row.hot .ticket-price { color: #000000; }
     :root:not([data-theme="light"]) .ticket-section { color: #000000; }
     :root:not([data-theme="light"]) .ticket-detail { color: #555555; }
     :root:not([data-theme="light"]) .ticket-price { color: #000000; }
@@ -559,17 +561,32 @@
     align-items: center;
     justify-content: space-between;
     background: #ffffff;
-    border: 1.5px solid rgba(0,0,0,0.25);
+    border: 1.5px solid rgba(0,0,0,0.12);
+    border-left: none;
     border-radius: 10px;
-    padding: 14px 18px;
+    padding: 14px 18px 14px 22px;
     font-size: 14px;
     transition: all 0.2s;
     position: relative;
+    overflow: hidden;
   }
-  .ticket-row:hover { border-color: #000000; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .ticket-row::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: rgba(59,130,246,0.7);
+    border-radius: 10px 0 0 10px;
+  }
+  .ticket-row:hover { border-color: rgba(0,0,0,0.35); box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
   .ticket-row.hot {
-    border-color: var(--accent);
-    background: linear-gradient(90deg, rgba(255,85,51,0.05), #ffffff);
+    border-color: rgba(255,85,51,0.25);
+    background: #ffffff;
+  }
+  .ticket-row.hot::before {
+    background: rgba(255,85,51,0.7);
   }
   .ticket-info { display: flex; flex-direction: column; gap: 2px; }
   .ticket-section { font-weight: 500; color: #000000; }
